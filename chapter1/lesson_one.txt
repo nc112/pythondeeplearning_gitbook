@@ -1,23 +1,23 @@
-1. Basic note
+1. ## Basic note
    使用'：'作为分割/结束判断符
    计算 +，-，*，/ 和C一致，可以用**表示乘方
 
-2. 三大常用数据结构：
+2. ## 三大常用数据结构：
    列表: list, []：可修改
    元组: (); 不可修改
    字典: Dictionary,{} 可修改， key=>value， 分隔符 键和值使用':', 键值对之间使用','
 
-3. 结构控制
+3. ## 结构控制
    if, elif, else, for
    not
    True, False
 
-4. 函数和类
+4. ## 函数和类
    def FUNCTION_NAME():
    class NAME:
         def __init__():
 
-5. 两个基本常用库
+5. ## 两个基本常用库
    numpy  (数据存储)
    1) N dimension array
    2) broadcast function: used for array computing
