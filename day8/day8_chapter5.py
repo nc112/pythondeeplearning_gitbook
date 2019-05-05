@@ -44,18 +44,26 @@ class Sigmoid:
         return ra
 
 #ReLu
+#be careful the input/output array should be the same dimension
 def ReLUfunc(x):
-    return np.max(0, x)
+    return np.maximum(0, x)
 class ReLu:
     def __init__(self):
-        self.radiff = None
+        self.rmask = None
     def forwardflow(self, x):
         result = ReLUfunc(x)
-        for item in result:
-            if item >= 0:
-                self.radiff[] = 1
-            else:
-                self.radiff = 0
+        print(result)
+        #array value pass(treat it as an object): python skill
+        self.rmask = (x <= 0)
+        print(self.rmask)
         return result
     def backwardflow(self, rdiff):
-        return rdiff * self.radiff
+        rdiff[self.rmask] = 0
+        return rdiff
+
+#validation
+x = np.array([[1.0, -0.5], [-2.0, 3.0]])
+rl = ReLu()
+rdiff = np.array([[1,1],[1,1]])
+rl.forwardflow(x)
+print(rl.backwardflow(rdiff))
