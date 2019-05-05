@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset.mnist import load_mnist
-from two_layer_net import TwoLayerNet
+import os, sys
+sys.path.append(os.pardir)
+from common.two_layer_net import TwoLayerNet
 
 #define a simple function:
 #y=0.01x^2+0.1x
