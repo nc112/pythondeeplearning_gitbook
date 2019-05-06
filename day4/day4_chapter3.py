@@ -18,8 +18,8 @@ print(t_test.shape) # (10000,)
 def softmax_original(x):
     return np.exp(x)/np.sum(np.exp(x))
 def softmax(x):
-    c = np.max(x)
-    return np.exp(x+c)/np.sum(np.exp(x))
+    x -= np.max(x)
+    return np.exp(x) / np.sum(np.exp(x))
 
 #validation:
 test = np.array([1010,1000,990])
