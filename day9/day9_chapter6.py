@@ -4,8 +4,10 @@ day9: chapter6
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-class TwoLayerNet:
+class TwoLayerNet_err_backward:
+    def __init__(self):
+        pass
+class TwoLayerNet_numerical:
     '''
     input size: size for input layer
     hidden_size: size for hidden layer
@@ -37,9 +39,39 @@ class TwoLayerNet:
         y = self.softmax(y1)
         return y
 
-    def numerical_gradient():
+    '''
+    calculate f(x+h)-f(x-h)/(2*h)
+    note:  h is the minimum value of delta
+    '''
+    def numerical_gradient(self, x):
+        pass
 
-    def gradient():
+    '''
+    gradient: calculate by 'error backward propagation'
+    x: input set
+    t: test set
+    '''
+    def gradient(self, x, t):
+        # forward
+        self.loss(x, t)
+
+        # backward
+        rdiff = 1
+        rdiff = self.lastLayer.backward(rdiff)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            rdiff = layer.backward(rdiff)
+
+        # set grads
+        grads = {}
+        grads['W1'] = self.layers['Affine1'].dW
+        grads['b1'] = self.layers['Affine1'].db
+        grads['W2'] = self.layers['Affine2'].dW
+        grads['b2'] = self.layers['Affine2'].db
+
+        return grads
 
 class SGD:
     def __init__(self, lrate = 0.01):
