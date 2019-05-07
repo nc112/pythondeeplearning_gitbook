@@ -26,9 +26,20 @@ optimizer = SGD()
 Define neural network parameters
 '''
 max_epochs = 200
-train_size = 100
+train_size = x_train.shape[0]
 batch_size = 100
+learning_step = 0
 
+train_loss_list = []
+train_accurate_list = []
+test_accurate_list = []
 
+iter_per_epoc = max(train_size/batch_size, 1)
+epoch_count = 0
 
+for i in range(learning_step):
+    batch_mask = np.random.choice(train_size, batch_size)
+
+    x_batch = x_train[batch_mask]
+    t_batch = t_train[batch_mask]
 
