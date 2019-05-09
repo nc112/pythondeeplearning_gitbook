@@ -1,7 +1,13 @@
 import numpy as np
 class MyTrainer:
     def __init__(self, networktype, trainning_loop, train_size, batch_size, x_train, t_train, optimizer='SGD'):
-        self.networktype =
+        self.networktype = networktype
+        self.trainning_loop = trainning_loop
+        self.train_size = train_size
+        self.batch_size = batch_size
+        self.x_train = x_train
+        self.t_train = t_train
+        self.optimizer = optimizer
     def train(self):
         for i in range(trainning_loop):
             batch_mask = np.random.choice(train_size, batch_size)
